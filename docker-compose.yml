@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: image-optimization-app
+    env_file:
+      - .env
+    ports:
+      - ${PORT}:${PORT}
+      - ${PORT_DEBUG}:${PORT_DEBUG}
+    volumes:
+      - "./src/:/usr/src/app/src/"

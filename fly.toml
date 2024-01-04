@@ -1,0 +1,21 @@
+# fly.toml app configuration file generated for image-optimize-service on 2023-11-03T12:23:13+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "image-optimize-service"
+primary_region = "waw"
+PORT = 8080
+
+[build]
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+  [http_service.concurrency]
+    hard_limit = 10
+    soft_limit = 2
